@@ -21,10 +21,8 @@ body {
 
     font-family: 'Overpass', sans-serif;
     background: black;
-
     background-color: radial-gradient(rgb(81, 169, 138), rgb(84, 155, 84), rgb(0, 0, 0));
     color: var(--highlight);
-    min-height: 100vh;
     width: 100%;
     margin: 0;
     --retro-font: 'Print Char 21';
@@ -36,6 +34,12 @@ a {
     text-decoration: none;
 }
 
+p {
+    font-size: clamp(1rem, 1.2vw, 2rem);
+    font-weight: 300;
+    max-width: 36em;
+}
+
 body::before {
     content: " ";
     display: block;
@@ -44,13 +48,13 @@ body::before {
     left: 0;
     bottom: 0;
     right: 0;
-    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.16) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.04), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.05));
     z-index: 2;
     background-size: 100% 2px, 3px 100%;
     pointer-events: none;
 }
 
-body::after {
+/*body::after {
     content: " ";
     display: block;
     position: absolute;
@@ -62,7 +66,7 @@ body::after {
     opacity: 0;
     z-index: 2;
     pointer-events: none;
-}
+}*/
 
 a {
     color: var(--highlight);
@@ -87,8 +91,9 @@ a {
 
 h1,
 h2,
-h3 {
-    text-shadow: 0em 0em 0.2em#00a702;
+h3,
+.button-link {
+    text-shadow: 0em 0em 0.1em#00a702;
 }
 
 .exhibition-title {
@@ -126,6 +131,15 @@ menu {
     font-size: 1.4rem;
 }
 
+.project-page menu {
+    gap: 1em;
+}
+
+.project-page menu .button-link {
+
+    padding: 0.2em 0.7em;
+}
+
 .works-container {
     display: flex;
     justify-content: center;
@@ -143,7 +157,7 @@ menu {
     display: grid;
     grid-template-columns: clamp(300px, 30vw, 1280px) clamp(300px, 30vw, 1280px);
     grid-row: auto auto;
-    grid-column-gap: 3em;
+    grid-column-gap: 2em;
     grid-row-gap: 2.3em;
 }
 
@@ -202,10 +216,12 @@ a:has(.work-4-thumb) {
     background-color: transparent;
     color: var(--highlight);
     font-family: var(--retro-font);
-    padding: 0.4em 0.6em;
+    padding: 0.7em 0.8em;
     font-size: 1em;
     text-decoration: none;
     text-transform: uppercase;
+    line-height: 2em;
+
 }
 
 .button-link-left::before {
@@ -225,6 +241,18 @@ div.button-links-bottom {
     justify-content: space-between;
     grid-column: 1 / 3;
 }
+
+.project-desc-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.project-desc {
+    margin: 1em 3em
+}
+
+
 
 @media (max-width: calc(600px + 10em)) {
     .works-wrapper {
@@ -253,6 +281,10 @@ div.button-links-bottom {
         text-align: center;
     }
 
+    div.button-links-bottom {
+        flex-direction: column;
+        gap: 3em;
+    }
 }
 
 @media (max-width: 940px) {
