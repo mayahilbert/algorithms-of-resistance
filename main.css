@@ -1,0 +1,323 @@
+@font-face {
+    font-family: 'Print Char 21';
+    src: url('PrintChar21.woff') format('woff'),
+        url('PrintChar21.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+* {
+    --highlight: #14F53C;
+    /*--highlight: #59bf61;*/
+}
+
+html {
+    position: relative;
+
+}
+
+body {
+
+    font-family: 'Overpass', sans-serif;
+    background: black;
+
+    background-color: radial-gradient(rgb(81, 169, 138), rgb(84, 155, 84), rgb(0, 0, 0));
+    color: var(--highlight);
+    min-height: 100vh;
+    width: 100%;
+    margin: 0;
+    --retro-font: 'Print Char 21';
+    cursor: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg id='b' xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 223.56 223.56'%3E%3Cdefs%3E%3Cstyle%3E.d%7Bfill:none;stroke:%23fff;stroke-miterlimit:10;stroke-width:10px;%7D%3C/style%3E%3C/defs%3E%3Cg id='c'%3E%3Cline class='d' x1='111.78' x2='111.78' y2='93.9'/%3E%3Cline class='d' x1='111.78' y1='129.66' x2='111.78' y2='223.56'/%3E%3Cline class='d' x1='223.56' y1='111.78' x2='129.66' y2='111.78'/%3E%3Cline class='d' x1='93.9' y1='111.78' y2='111.78'/%3E%3C/g%3E%3C/svg%3E") 16 16, pointer;
+}
+
+a {
+    cursor: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg id='b' xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 223.56 223.56'%3E%3Cdefs%3E%3Cstyle%3E.d%7Bfill:none;stroke:%23fff;stroke-miterlimit:10;stroke-width:17px;%7D%3C/style%3E%3C/defs%3E%3Cg id='c'%3E%3Cline class='d' x1='111.78' x2='111.78' y2='93.9'/%3E%3Cline class='d' x1='111.78' y1='129.66' x2='111.78' y2='223.56'/%3E%3Cline class='d' x1='223.56' y1='111.78' x2='129.66' y2='111.78'/%3E%3Cline class='d' x1='93.9' y1='111.78' y2='111.78'/%3E%3C/g%3E%3C/svg%3E") 16 16, pointer;
+    text-decoration: none;
+}
+
+body::before {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    z-index: 2;
+    background-size: 100% 2px, 3px 100%;
+    pointer-events: none;
+}
+
+body::after {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(18, 16, 16, 0.1);
+    opacity: 0;
+    z-index: 2;
+    pointer-events: none;
+}
+
+a {
+    color: var(--highlight);
+}
+
+
+.hidden-ss {
+    display: none;
+}
+
+.video-container {
+    display: flex;
+    justify-content: center;
+}
+
+.video-16-9 {
+    aspect-ratio: 16/9;
+    width: 80%;
+    position: relative;
+    z-index: 50;
+}
+
+h1,
+h2,
+h3 {
+    text-shadow: 0em 0em 0.2em#00a702;
+}
+
+.exhibition-title {
+    font-family: 'Overpass', sans-serif;
+    text-transform: uppercase;
+    white-space: nowrap;
+    margin: 0;
+}
+
+.homepage .exhibition-title {
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    order: 2;
+    grid-column: 1 / 3;
+    font-size: clamp(12px, 2.1vw, 2.1rem);
+}
+
+menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 40px;
+}
+
+.homepage div:has(.button-link-nma) {
+    margin-bottom: 0;
+    grid-column: 1 / 3;
+    margin: 0;
+    padding: 0;
+}
+
+
+.project-page .exhibition-title {
+    font-size: 1.4rem;
+}
+
+.works-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1.5em 0;
+
+}
+
+.works-wrapper {
+    /*display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;*/
+    /*max-width: 80vw;*/
+    display: grid;
+    grid-template-columns: clamp(300px, 30vw, 1280px) clamp(300px, 30vw, 1280px);
+    grid-row: auto auto;
+    grid-column-gap: 3em;
+    grid-row-gap: 2.3em;
+}
+
+
+
+.work {
+    display: block;
+    position: relative;
+    border: 2px solid var(--highlight);
+    width: clamp(300px, 30vw, 1280px);
+    background-image: url('images/dead-in-iraq-1.jpg');
+    background-position: center;
+    background-size: cover;
+    height: clamp(200px, 30vh, 1280px)
+}
+
+.work-thumb {
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+    vertical-align: bottom;
+}
+
+a:has(.work-1-thumb),
+a:has(.work-2-thumb),
+a:has(.work-3-thumb),
+a:has(.work-4-thumb) {
+    margin: 0 auto;
+}
+
+a:has(.work-1-thumb),
+a:has(.work-2-thumb) {
+    order: 1;
+}
+
+a:has(.work-3-thumb),
+a:has(.work-4-thumb) {
+    order: 3
+}
+
+.work h2 {
+    position: absolute;
+    top: calc(50% - 1em);
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: transparent;
+    font-family: var(--retro-font);
+    text-transform: uppercase;
+    font-size: 1em;
+    width: 100%;
+    text-align: center;
+}
+
+.button-link {
+    border: 2px solid var(--highlight);
+    background-color: transparent;
+    color: var(--highlight);
+    font-family: var(--retro-font);
+    padding: 0.4em 0.6em;
+    font-size: 1em;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.button-link-left::before {
+    content: "<";
+    padding-right: 0.5em;
+}
+
+
+.button-link-right::after {
+    content: ">";
+    padding-left: 0.5em;
+}
+
+div.button-links-bottom {
+    order: 4;
+    display: flex;
+    justify-content: space-between;
+    grid-column: 1 / 3;
+}
+
+@media (max-width: calc(600px + 10em)) {
+    .works-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .work {
+        width: 80vw;
+    }
+
+    a:has(.work) {
+        grid-column: 1 / 3;
+    }
+
+    .homepage .exhibition-title {
+        order: 1;
+        font-size: 5.6vw;
+    }
+
+    .homepage .button-link {
+        margin: 0 2.5em;
+    }
+
+    .project-page menu {
+        flex-direction: column;
+        text-align: center;
+    }
+
+}
+
+@media (max-width: 940px) {
+
+    .hidden-ss {
+        display: block;
+    }
+}
+
+.works-container::after {
+    content: "";
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/7/76/1k_Dissolve_Noise_Texture.png");
+    height: 300%;
+    width: 300%;
+    position: fixed;
+    opacity: 0.06;
+    animation: animateGrain 8s steps(10) infinite;
+    pointer-events: none;
+}
+
+@keyframes animateGrain {
+
+    0%,
+    100% {
+        transform: translate(0, 0)
+    }
+
+    10% {
+        transform: translate(-5%, -10%)
+    }
+
+    20% {
+        transform: translate(-15%, -20%)
+    }
+
+    30% {
+        transform: translate(-5%, -10%)
+    }
+
+    40% {
+        transform: translate(-15%, -20%)
+    }
+
+    50% {
+        transform: translate(-5%, -10%)
+    }
+
+    60% {
+        transform: translate(-15%, -20%)
+    }
+
+    70% {
+        transform: translate(-5%, -10%)
+    }
+
+    80% {
+        transform: translate(-15%, -20%)
+    }
+
+    90% {
+        transform: translate(-5%, -10%)
+    }
+
+    100% {
+        transform: translate(-15%, -20%)
+    }
+
+}
