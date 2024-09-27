@@ -1,7 +1,7 @@
 @font-face {
     font-family: 'Print Char 21', monospace;
     src: url('./PrintChar21.woff') format('woff'), url('./PrintChar21.woff2') format('woff2'), url('./PrintChar21.ttf') format('ttf');
-    font-weight: 500;
+    font-weight: normal;
     font-style: normal;
     font-display: swap;
     text-rendering: optimizeLegibility;
@@ -171,7 +171,7 @@ menu {
     background-image: url('images/dead-in-iraq-1.jpg');
     background-position: center;
     background-size: cover;
-    height: clamp(200px, 30vh, 1280px)
+    height: clamp(200px, 30vh, 1280px);
 }
 
 .work-thumb {
