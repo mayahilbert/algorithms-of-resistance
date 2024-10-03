@@ -84,7 +84,7 @@ a {
 
 .video-16-9 {
     aspect-ratio: 16/9;
-    width: 80%;
+    width: 70%;
     position: relative;
     z-index: 50;
 }
@@ -148,6 +148,11 @@ menu {
 
 }
 
+.project-container {
+    display: flex;
+    flex-direction: column;
+}
+
 .works-wrapper {
     /*display: flex;
     flex-wrap: wrap;
@@ -168,7 +173,6 @@ menu {
     position: relative;
     border: 2px solid var(--highlight);
     width: clamp(300px, 30vw, 1280px);
-    background-image: url('images/dead-in-iraq-1.jpg');
     background-position: center;
     background-size: cover;
     height: clamp(200px, 30vh, 1280px);
@@ -179,6 +183,22 @@ menu {
     padding: 0;
     margin: 0;
     vertical-align: bottom;
+}
+
+.work-1-thumb {
+    background-image: url('images/ELEGY.jpg');
+}
+
+.work-2-thumb {
+    background-image: url('images/dead-in-iraq-1.jpg');
+}
+
+.work-3-thumb {
+    background-image: url('images/trump.jpg');
+}
+
+.work-4-thumb {
+    background-image: url('images/confessional.jpg');
 }
 
 a:has(.work-1-thumb),
@@ -203,7 +223,11 @@ a:has(.work-4-thumb) {
     top: calc(50% - 1em);
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: transparent;
+    background-color: rgb(0, 0, 0, 0.3);
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-family: var(--retro-font);
     text-transform: uppercase;
     font-size: 1em;
@@ -294,16 +318,18 @@ div.button-links-bottom {
     }
 }
 
-.works-container::after {
+.works-container::after,
+.project-container::after {
     content: "";
     background-image: url("https://upload.wikimedia.org/wikipedia/commons/7/76/1k_Dissolve_Noise_Texture.png");
-    height: 300%;
-    width: 300%;
+    height: 400%;
+    width: 400%;
     position: fixed;
-    opacity: 0.06;
+    opacity: 0.04;
     animation: animateGrain 8s steps(10) infinite;
     pointer-events: none;
 }
+
 
 @keyframes animateGrain {
 
@@ -351,5 +377,42 @@ div.button-links-bottom {
     100% {
         transform: translate(-15%, -20%)
     }
+
+}
+
+
+body.computerized-confessional,
+.computer-container>* {
+    background: black;
+    color: var(--highlight);
+    font-family: var(--retro-font);
+    text-shadow: 0em 0em 0.3em#00a702 !important;
+
+}
+
+.computer-container>p,
+.computer-container>span {
+    text-shadow: 0em 0em 0.5em#00a702 !important;
+
+}
+
+.computer-container {
+    padding-top: 2em;
+    max-width: 50vw;
+    margin: 0 auto;
+}
+
+textarea,
+input {
+    background: black;
+    color: var(--highlight);
+    font-family: var(--retro-font);
+    text-shadow: 0em 0em 0.3em#00a702;
+    border: none;
+}
+
+.input::after {
+    content: '';
+    font-family: var(--retro-font);
 
 }
