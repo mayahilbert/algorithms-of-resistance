@@ -430,11 +430,19 @@ body.computerized-confessional,
 
 }
 
+#confessional-bg {
+    height: 100%;
+}
+
+#confessional {
+    height: 100%;
+
+}
+
 #confessional>* {
     padding-top: 10vh;
     max-width: clamp(400px, 50vw, 50em);
     margin: 0 auto;
-    height: 90vh;
 }
 
 textarea,
