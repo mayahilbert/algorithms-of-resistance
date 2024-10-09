@@ -441,7 +441,7 @@ body.computerized-confessional,
 
 #confessional>* {
     padding-top: 10vh;
-    max-width: clamp(400px, 50vw, 50em);
+    max-width: clamp(400px, 51vw, 53em);
     margin: 0 auto;
 }
 
