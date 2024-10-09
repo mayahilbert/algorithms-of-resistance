@@ -6,14 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Computerized Confessional - Algorithms of Resistance: The Work of Joseph
         DeLappe</title>
-    <link rel="stylesheet" href="main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
     <link rel="preload" href="PRNumber3.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="PRNumber3.woff" as="font" type="font/woff" crossorigin>
-
+    <link href="jquery.terminal.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="main.css">
 </head>
 
 <body class="project-page">
@@ -29,10 +29,29 @@
         <div class="project-desc-container">
             <div class="project-desc">
                 <h1>The Computerized Confessional</h1>
-                <p></p>
+                <div class="confessional-link">
+                    <a href="confessional.html" class="button-link">Enter the
+                        Confessional</a>
+                </div>
+                <p>Interactive installation, AI chat bot, 1983/2024</p>
+                <p>
+                    In 1984, as an undergraduate student at San Jose State University, I was introduced to MIT computer
+                    scientist Joseph Weizembaum’s ELIZA (1967), a digital interactive chatbot psychotherapist—which he
+                    created as an example of why we should not trust AI, only to see ELIZA celebrated as a solution to
+                    helping to solve the mental health crisis in the 1970’s. Inspired by his work, I created my first
+                    interactive artwork in 1983, “The Computerized Confessional” which invited users to kneel at an
+                    Apple II computer and go through the process of the sacrament of Catholic confession. The work was
+                    intended as a transgressive act, representing my emerging atheism, but perhaps more importantly, the
+                    first project I created that reflected my sceptical engagement with digital technologies. This new
+                    edition of the work was built upon a version of ELIZA created in 1997 by George Dunlop.
+                </p>
             </div>
         </div>
     </div>
+    <script src="jquery-3.7.1.slim.min.js"></script>
+    <script src="jquery.terminal.min.js"></script>
+    <script src="confessional.js"></script>
+
     <script src="main.js"></script>
 </body>
 
