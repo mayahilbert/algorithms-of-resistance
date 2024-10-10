@@ -469,6 +469,16 @@ input {
     scrollbar-color: black var(--background, #000);
 }
 
+/* Style the scrollbar background */
+.terminal-scroller::-webkit-scrollbar {
+    background: black;
+}
+
+/* Style the scrollbar handle */
+.terminal-scroller::-webkit-scrollbar-thumb {
+    background: black;
+}
+
 .mercy {
     text-align: center;
     width: 100%;

@@ -58,8 +58,10 @@ $(function () {
         ];
         function ask_questions(step) {
             var question = questions[step];
+            term.clear();
 
             if (question) {
+
                 if (question.inquiry) {
                     var inquiry = inquiries[Math.floor(Math.random() * inquiries.length)];
                     term.echo("\n" + inquiry + "\n");
@@ -92,7 +94,7 @@ $(function () {
                         }
                     } else if (question.endamen) {
                         if (command.match(/amen/i)) {
-
+                            term.clear();
                             term.echo("[[;;;mercy]GODISMERCY\nGODISMERCY\nGODISMERCY\nGODISMERCY\nGODISMERCY\nGODISMERCY\nGODISMERCYGODISMERCYGODISMERCY\nGODISMERCYGODISMERCYGODISMERCY\nGODISMERCYGODISMERCYGODISMERCY\nGODISMERCYGODISMERCYGODISMERCY\nGODISMERCY\nGODISMERCY\nGODISMERCY\nGODISMERCY\nGODISMERCY\nGODISMERCY\nGODISMERCY\nGODISMERCY\nGODISMERCY\nGODISMERCY\nGODISMERCY]");
                             setTimeout(() => { finish(); }, 5000);
                         }
@@ -114,6 +116,7 @@ $(function () {
     }, {
         greetings: 'Press enter to begin',
         prompt: ']',
+        memory: false
     }
     );
 
