@@ -1,7 +1,7 @@
 @font-face {
     font-family: "Print Char 21", monospace;
-    src: url("PrintChar21.woff") format("woff"),
-        url("PrintChar21.woff2") format("woff2"),
+    src: url("printchar21-webfont.woff") format("woff"),
+        url("printchar21-webfont.woff2") format("woff2"),
         url("PrintChar21.ttf") format("truetype");
     font-weight: normal;
     font-style: normal;
