@@ -4,8 +4,7 @@
         url('printchar21-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-    font-display: swap;
-    text-rendering: optimizeLegibility;
+
 }
 
 * {
