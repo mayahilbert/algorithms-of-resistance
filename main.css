@@ -1,6 +1,6 @@
 @font-face {
     font-family: "Print Char 21", monospace;
-    src: url("PrintChar21.ttf") format("ttf"), url("PrintChar21.woff") format("woff"), url("PrintChar21.woff2") format("woff2");
+    src: url("PrintChar21.woff") format("woff"), url("PrintChar21.woff2") format("woff2"), url("PrintChar21.ttf") format("truetype");
     font-weight: normal;
     font-style: normal;
     font-display: swap;
