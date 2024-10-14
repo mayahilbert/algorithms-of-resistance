@@ -30,5 +30,4 @@ document.addEventListener('DOMContentLoaded', e => {
 
         });
     }
-    //});
 });

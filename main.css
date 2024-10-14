@@ -474,7 +474,7 @@ div.button-links-bottom {
 }
 
 body.computerized-confessional,
-.computer-container>* {
+.computer-wrapper>* {
     background: black;
     color: var(--highlight);
     font-family: var(--retro-font);
@@ -482,25 +482,34 @@ body.computerized-confessional,
     text-transform: uppercase;
 }
 
-.computer-container>p,
-.computer-container>span {
+.computer-wrapper>p,
+.computer-wrapper>span {
     text-shadow: 0em 0em 0.5em#00a702 !important;
 
 }
 
 #confessional-bg {
     height: 100%;
+
+}
+
+.computer-container {
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
 }
 
 #confessional {
-    height: 100%;
-
+    width: 100%;
+    padding-bottom: 3em;
 }
 
+
 #confessional>* {
-    padding-top: 10vh;
-    max-width: clamp(400px, 51vw, 53em);
+    max-width: clamp(500px, 51vw, 53em);
     margin: 0 auto;
+    height: auto;
 }
 
 textarea,
@@ -540,4 +549,40 @@ input {
 .mercy {
     text-align: center;
     width: 100%;
+}
+
+@media screen and (max-width: 600px) {
+
+    .cmd,
+    .cmd div,
+    .cmd span,
+    .terminal,
+    .terminal-output> :not(.raw) a,
+    .terminal-output> :not(.raw) div,
+    .terminal-output> :not(.raw) span {
+        font-size: calc(var(--size, 1)*(2.2vw/var(--pixel-density, 1)));
+    }
+
+    .computer-container {
+        height: 100%;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+    }
+
+    #confessional {
+        width: 100%;
+        padding-bottom: 0;
+    }
+
+}
+
+i.audio-control-icon {
+    opacity: 0.4;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 999999;
+    margin: 1em;
+    cursor: pointer;
 }

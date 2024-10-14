@@ -22,9 +22,31 @@
 </head>
 
 <body id="confessional-bg" class="computerized-confessional">
-  <div class="computer-container" id="confessional">
+  <audio id="organ-music" preload loop src="audio/Confessional-Organ-Music-Bach-LOOP-IT.mp3"></audio>
+  <audio id="screen-2-audio" src="audio/Screen-2.mp3"></audio>
+  <audio id="screen-3-audio" src="audio/Screen-3.mp3"></audio>
+  <audio id="screen-4-audio" src="audio/Screen-4.mp3"></audio>
+  <audio id="screen-5-audio1" src="audio/Screen-5-Can-you-be-more-specific.mp3"></audio>
+  <audio id="screen-5-audio2" src="audio/Screen-5-Do-you-feel-guilty.mp3"></audio>
+  <audio id="screen-5-audio3" src="audio/Screen-5-Do-you-feel-remorse.mp3"></audio>
+  <audio id="screen-5-audio4" src="audio/Screen-5-Tell-me-More.mp3"></audio>
+  <audio id="screen-5-audio5" src="audio/Screen-5-Why-have-you-sinned.mp3"></audio>
+  <audio id="screen-6a-audio" src="audio/Screen-6a.mp3"></audio>
+  <audio id="screen-6b-audio" src="audio/Screen-6b.mp3"></audio>
+  <audio id="screen-6c-audio1" src="audio/Screen-6c-1.mp3"></audio>
+  <audio id="screen-6c-audio2" src="audio/Screen-6c-2.mp3"></audio>
+  <audio id="screen-6c-audio3" src="audio/Screen-6c-3.mp3"></audio>
+  <audio id="screen-8-audio" src="audio/Screen-8.mp3"></audio>
+  <audio id="screen-10-audio" src="audio/Screen-10.mp3"></audio> <audio src="audio/none.mp3"></audio>
+
+  <div class="audio-control" onclick="audioToggle();">
+    <i class="audio-control-icon">Sound off</i>
   </div>
 
+  <div class="computer-container">
+    <div class="computer-wrapper" id="confessional">
+    </div>
+  </div>
   <script src="jquery-3.7.1.slim.min.js"></script>
   <script src="jquery.terminal.min.js"></script>
   <script src="confessional.js"></script>
