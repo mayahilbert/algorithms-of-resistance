@@ -490,19 +490,26 @@ body.computerized-confessional,
 
 #confessional-bg {
     height: 100%;
-
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
 }
 
 .computer-container {
-    height: 100%;
+    height: clamp(600px, 1280px, 95%);
+    width: 60%;
     display: flex;
     align-items: flex-end;
     justify-content: center;
+    border: 2px solid var(--highlight);
+    overflow: hidden;
+
 }
 
 #confessional {
     width: 100%;
-    padding-bottom: 3em;
+    padding-bottom: 2em;
 }
 
 
@@ -597,12 +604,12 @@ i.audio-control-icon {
     .terminal-output> :not(.raw) a,
     .terminal-output> :not(.raw) div,
     .terminal-output> :not(.raw) span {
-        font-size: calc(var(--size, 1)*(0.85vw/var(--pixel-density, 1)));
-        line-height: calc(var(--size, 1)*(0.95vw/var(--pixel-density, 1)));
+        font-size: calc(var(--size, 1)*(0.82vw/var(--pixel-density, 1)));
+        line-height: calc(var(--size, 1)*(0.92vw/var(--pixel-density, 1)));
     }
 
     .terminal-output {
-        margin-bottom: 7vh;
+        margin-bottom: 2vh;
     }
 }
 
@@ -615,12 +622,12 @@ i.audio-control-icon {
     .terminal-output> :not(.raw) a,
     .terminal-output> :not(.raw) div,
     .terminal-output> :not(.raw) span {
-        font-size: calc(var(--size, 1)*(0.75vw/var(--pixel-density, 1)));
-        line-height: calc(var(--size, 1)*(0.85vw/var(--pixel-density, 1)));
+        font-size: calc(var(--size, 1)*(0.7vw/var(--pixel-density, 1)));
+        line-height: calc(var(--size, 1)*(0.8vw/var(--pixel-density, 1)));
     }
 
     .terminal-output {
-        margin-bottom: 14vh;
+        margin-bottom: 7vh;
     }
 
     #confessional {
