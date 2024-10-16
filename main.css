@@ -503,7 +503,7 @@ body.computerized-confessional,
     align-items: flex-end;
     justify-content: center;
     border: 0.2em solid var(--highlight);
-    overflow: hidden;
+    overflow-y: hidden;
 
 }
 
@@ -657,7 +657,7 @@ i.audio-control-icon {
     }
 
     .computer-container {
-        height: clamp(600px, 1600px, 95%);
+        height: clamp(600px, 1650px, 95%);
 
     }
 }
@@ -665,7 +665,7 @@ i.audio-control-icon {
 @media screen and (min-width: 3600px) {
 
     .computer-container {
-        height: clamp(600px, 1700px, 95%);
+        height: clamp(600px, 1760px, 95%);
 
     }
 }
