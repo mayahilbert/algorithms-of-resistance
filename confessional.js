@@ -237,3 +237,7 @@ $(function () {
     );
 
 });
+
+document.addEventListener('DOMContentLoaded', e => {
+    term.resize()
+})
