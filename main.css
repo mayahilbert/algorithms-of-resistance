@@ -634,3 +634,30 @@ i.audio-control-icon {
         padding-bottom: 3vh;
     }
 }
+
+@media screen and (min-width: 2900px) {
+
+    .cmd,
+    .cmd div,
+    .cmd span,
+    .terminal,
+    .terminal-output> :not(.raw) a,
+    .terminal-output> :not(.raw) div,
+    .terminal-output> :not(.raw) span {
+        font-size: calc(var(--size, 1)*(0.6vw/var(--pixel-density, 1)));
+        line-height: calc(var(--size, 1)*(0.7vw/var(--pixel-density, 1)));
+    }
+
+    .computer-container {
+        height: clamp(600px, 1600px, 95%);
+
+    }
+}
+
+@media screen and (min-width: 3600px) {
+
+    .computer-container {
+        height: clamp(600px, 1700px, 95%);
+
+    }
+}
