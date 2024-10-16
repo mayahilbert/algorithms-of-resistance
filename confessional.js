@@ -56,13 +56,14 @@ $(function () {
             "TELL ME MORE?\n\nTYPE YOUR ANSWER. THEN PRESS RETURN", "CAN YOU BE MORE SPECIFIC?\n\nTYPE YOUR ANSWER. THEN PRESS RETURN", "DO YOU FEEL GUILTY?\n\nTYPE YOUR ANSWER. THEN PRESS RETURN", "DO YOU FEEL REMORSE?\n\nTYPE YOUR ANSWER. THEN PRESS RETURN", "WHY HAVE YOU SINNED?\n\nTYPE YOUR ANSWER. THEN PRESS RETURN"
         ]
         var penances = [
-            "TO PRAY, SAY TWO OUR FATHER'S AND ONE HAIL MARY", "TO PRAY, SAY TWO HAIL MARY'S AND ONE OUR FATHER", "TO PRAY, SAY THREE HAIL MARY'S AND TWO OUR FATHER'S"
+            "SAY TWO OUR FATHER'S AND ONE HAIL MARY.", "SAY TWO HAIL MARY'S AND ONE OUR FATHER.", "SAY THREE HAIL MARY'S AND TWO OUR FATHER'S."
         ]
         var questions = [
             {
                 name: "start",
                 text: 'IN THE NAME OF THE FATHER, AND OF THE SON, AND OF THE HOLY SPIRIT.\nAMEN.\n\nMAY GOD, WHO HAS ENLIGHTENED EVERY HEART, HELP YOU TO KNOW YOUR SINS AND TRUST IN HIS MERCY.\n\nTYPE AMEN. THEN PRESS RETURN',
-                amen: true
+                amen: true,
+                keepWords: true
             },
             {
                 name: 'long',
@@ -101,15 +102,11 @@ $(function () {
             {
                 name: "absolution",
                 text: "ARE YOU SORRY FOR YOUR SINS AND PREPARED FOR GOD'S ABSOLUTION?\n\nTYPE YOUR ANSWER, YES OR NO. THEN PRESS RETURN",
-                boolean: true
-            },
-            {
-                name: "penance-intro",
-                text: "MY CHILD, FOR YOUR PENANCE AND ABSOLUTION FROM YOUR SINS, YOU MUST PRAY.",
+                boolean: true,
             },
             {
                 name: "penance",
-                text: "YOUR PENANCE IS\n\n",
+                text: "MY CHILD, FOR YOUR PENANCE AND ABSOLUTION FROM YOUR SINS, YOU MUST PRAY.\n\n",
                 penance: true,
                 amen: true
             },
@@ -119,8 +116,12 @@ $(function () {
             },
             {
                 name: "end",
-                text: "GOD, THE FATHER OF MERCIES, THROUGH THE DEATH AND RESURRECTION OF HIS SON HAS RECONCILED THE WORLD TO HIMSELF AND SENT THE HOLY SPIRIT AMONG US FOR THE FORGIVENESS OF SINS: THROUGH THE MINISTRY OF THE CHUCH MAY GOD GIVE YOU PARDON AND PEACE, AND I ABSOLVE YOU FROM YOUR SINS IN THE NAME OF THE FATHER, AND OF THE SON, AND OF THE HOLY SPIRITY. GO FORTH AND SIN NO MORE! AMEN.\n\nTYPE AMEN. THEN PRESS RETURN",
-                endamen: true,
+                text: "GOD, THE FATHER OF MERCIES, THROUGH THE DEATH AND RESURRECTION OF HIS SON HAS RECONCILED THE WORLD TO HIMSELF AND SENT THE HOLY SPIRIT AMONG US FOR THE FORGIVENESS OF SINS: THROUGH THE MINISTRY OF THE CHUCH MAY GOD GIVE YOU PARDON AND PEACE, AND I ABSOLVE YOU FROM YOUR SINS IN THE NAME OF THE FATHER, AND OF THE SON, AND OF THE HOLY SPIRIT. GO FORTH AND SIN NO MORE! AMEN.\n\nTYPE AMEN. THEN PRESS RETURN",
+                amen: true
+            },
+            {
+                name: "endamen",
+                endamen: true
             },
 
 
@@ -133,7 +134,9 @@ $(function () {
                 if (question.inquiry) {
                     var randomIndex = Math.floor(Math.random() * inquiries.length);
                     var inquiry = inquiries.splice(randomIndex, 1)[0];
-                    term.echo("\n" + inquiry + "\n");
+                    term.echo("\n" + inquiry + "\n", {
+                        keepWords: true
+                    });
                 }
                 if (question.penance) {
                     var randomPenance = penances[Math.floor(Math.random() * penances.length)];
@@ -144,10 +147,25 @@ $(function () {
                     } else if (randomPenance.includes("THREE HAIL MARY")) {
                         playAudio(13);
                     }
-                    term.echo("\n" + question.text + randomPenance + "\n\nTYPE AMEN. THEN PRESS RETURN" + "\n");
-                } else {
+                    term.echo("\n" + question.text + randomPenance + "\n\nTYPE AMEN. THEN PRESS RETURN" + "\n", {
+                        keepWords: true
+                    });
+                } else if (question.endamen) {
+                    playAudio(15);
+                    term.echo("[[;;;mercy]GODISMERCY\nGODISMERCY\nGODISMERCY\nGODISMERCY\nGODISMERCY\nGODISMERCY\nGODISMERCY\nGODISMERCY\nGODISMERCYGODISMERCYGODISMERCY\nGODISMERCYGODISMERCYGODISMERCY\nGODISMERCYGODISMERCYGODISMERCY\nGODISMERCYGODISMERCYGODISMERCY\nGODISMERCYGODISMERCYGODISMERCY\nGODISMERCYGODISMERCYGODISMERCY\nGODISMERCYGODISMERCYGODISMERCY\nGODISMERCYGODISMERCYGODISMERCY\nGODISMERCY\nGODISMERCY\nGODISMERCY\nGODISMERCY\nGODISMERCY\nGODISMERCY\nGODISMERCY\nGODISMERCY\nGODISMERCY\nGODISMERCY\nGODISMERCY\nGODISMERCY\nGODISMERCY\nGODISMERCY\nGODISMERCY\nGODISMERCY\nGODISMERCY]\n\nGIVE THANKS TO THE LORD FOR HE IS GOOD.\n\nGO IN PEACE.\n\nTYPE AMEN. THEN PRESS RETURN", {
+                        keepWords: false
+                    });
+                    setTimeout(() => {
+                        playAudio(0);
+                    }, 5000);
+
+                    //setTimeout(() => { finish(); }, 7000);
+                }
+                else {
                     if (question.text) {
-                        term.echo("\n" + question.text + "\n");
+                        term.echo("\n" + question.text + "\n", {
+                            keepWords: true
+                        });
                     }
 
                     if (step == 0) {
@@ -170,9 +188,7 @@ $(function () {
                         }
                     } else if (step == 9) {
                         playAudio(9);
-                    } else if (step == 10) {
-                        playAudio(10);
-                    } else if (step == 13) {
+                    } else if (step == 12) {
                         playAudio(14);
                     }
                     else { playAudio(16) }
@@ -192,15 +208,7 @@ $(function () {
                         }
                     } else if (question.endamen) {
                         if (command.match(/amen/i)) {
-                            term.clear();
-                            playAudio(15);
-                            term.echo("[[;;;mercy]GODISMERCY\nGODISMERCY\nGODISMERCY\nGODISMERCY\nGODISMERCY\nGODISMERCY\nGODISMERCY\nGODISMERCY\nGODISMERCYGODISMERCYGODISMERCY\nGODISMERCYGODISMERCYGODISMERCY\nGODISMERCYGODISMERCYGODISMERCY\nGODISMERCYGODISMERCYGODISMERCY\nGODISMERCYGODISMERCYGODISMERCY\nGODISMERCYGODISMERCYGODISMERCY\nGODISMERCYGODISMERCYGODISMERCY\nGODISMERCYGODISMERCYGODISMERCY\nGODISMERCY\nGODISMERCY\nGODISMERCY\nGODISMERCY\nGODISMERCY\nGODISMERCY\nGODISMERCY\nGODISMERCY\nGODISMERCY\nGODISMERCY\nGODISMERCY\nGODISMERCY\nGODISMERCY\nGODISMERCY\nGODISMERCY\nGODISMERCY\nGODISMERCY]\n\nGIVE THANKS TO THE LORD FOR HE IS GOOD.\n\nGO IN PEACE. ", {
-                                keepWords: false
-                            });
-                            setTimeout(() => {
-                                playAudio(0);
-                            }, 5000);
-                            setTimeout(() => { finish(); }, 7000);
+                            finish();
                         }
                     } else {
                         term.pop();

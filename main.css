@@ -573,6 +573,7 @@ input {
     #confessional {
         width: 100%;
         padding-bottom: 0;
+        margin-top: 5vh;
     }
 
 }
@@ -585,4 +586,44 @@ i.audio-control-icon {
     z-index: 999999;
     margin: 1em;
     cursor: pointer;
+}
+
+@media screen and (min-width: 1920px) {
+
+    .cmd,
+    .cmd div,
+    .cmd span,
+    .terminal,
+    .terminal-output> :not(.raw) a,
+    .terminal-output> :not(.raw) div,
+    .terminal-output> :not(.raw) span {
+        font-size: calc(var(--size, 1)*(0.85vw/var(--pixel-density, 1)));
+        line-height: calc(var(--size, 1)*(0.95vw/var(--pixel-density, 1)));
+    }
+
+    .terminal-output {
+        margin-bottom: 7vh;
+    }
+}
+
+@media screen and (min-width: 2560px) {
+
+    .cmd,
+    .cmd div,
+    .cmd span,
+    .terminal,
+    .terminal-output> :not(.raw) a,
+    .terminal-output> :not(.raw) div,
+    .terminal-output> :not(.raw) span {
+        font-size: calc(var(--size, 1)*(0.75vw/var(--pixel-density, 1)));
+        line-height: calc(var(--size, 1)*(0.85vw/var(--pixel-density, 1)));
+    }
+
+    .terminal-output {
+        margin-bottom: 14vh;
+    }
+
+    #confessional {
+        padding-bottom: 3vh;
+    }
 }
