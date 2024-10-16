@@ -559,6 +559,10 @@ input {
 }
 
 @media screen and (max-width: 600px) {
+    .computer-container {
+        width: 100%;
+        border: none;
+    }
 
     .cmd,
     .cmd div,
@@ -566,7 +570,8 @@ input {
     .terminal,
     .terminal-output> :not(.raw) a,
     .terminal-output> :not(.raw) div,
-    .terminal-output> :not(.raw) span {
+    .terminal-output> :not(.raw) span,
+    i.audio-control-icon {
         font-size: calc(var(--size, 1)*(2.2vw/var(--pixel-density, 1)));
     }
 
