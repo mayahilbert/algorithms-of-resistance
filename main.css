@@ -502,7 +502,7 @@ body.computerized-confessional,
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    border: 2px solid var(--highlight);
+    border: 0.2em solid var(--highlight);
     overflow: hidden;
 
 }
