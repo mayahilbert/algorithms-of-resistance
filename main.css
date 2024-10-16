@@ -603,7 +603,8 @@ i.audio-control-icon {
     .terminal,
     .terminal-output> :not(.raw) a,
     .terminal-output> :not(.raw) div,
-    .terminal-output> :not(.raw) span {
+    .terminal-output> :not(.raw) span,
+    i.audio-control-icon {
         font-size: calc(var(--size, 1)*(0.82vw/var(--pixel-density, 1)));
         line-height: calc(var(--size, 1)*(0.92vw/var(--pixel-density, 1)));
     }
@@ -621,7 +622,8 @@ i.audio-control-icon {
     .terminal,
     .terminal-output> :not(.raw) a,
     .terminal-output> :not(.raw) div,
-    .terminal-output> :not(.raw) span {
+    .terminal-output> :not(.raw) span,
+    i.audio-control-icon {
         font-size: calc(var(--size, 1)*(0.7vw/var(--pixel-density, 1)));
         line-height: calc(var(--size, 1)*(0.8vw/var(--pixel-density, 1)));
     }
@@ -643,7 +645,8 @@ i.audio-control-icon {
     .terminal,
     .terminal-output> :not(.raw) a,
     .terminal-output> :not(.raw) div,
-    .terminal-output> :not(.raw) span {
+    .terminal-output> :not(.raw) span,
+    i.audio-control-icon {
         font-size: calc(var(--size, 1)*(0.6vw/var(--pixel-density, 1)));
         line-height: calc(var(--size, 1)*(0.7vw/var(--pixel-density, 1)));
     }
