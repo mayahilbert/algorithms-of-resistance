@@ -593,6 +593,16 @@ input {
         width: 100%;
         padding-bottom: 0;
     }
+
+    .terminal-output> :not(.raw) span.mercy {
+        transform: scale(0.7);
+        margin-top: -100%;
+        line-height: 0;
+    }
+
+    .terminal .terminal-output> :not(.raw)>div {
+        --terminal-line: 0.6;
+    }
 }
 
 @media screen and (max-width: 600px) {
