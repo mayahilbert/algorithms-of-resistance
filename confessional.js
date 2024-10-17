@@ -9,8 +9,9 @@ let currentAudio = audioList[0];
 let userAllowingAudio = false;
 
 function audioToggle() {
-    document.querySelectorAll("textarea")[0].click();
-
+    if (!isMobile) {
+        document.querySelectorAll("textarea")[0].click();
+    }
     if (userAllowingAudio) {
         for (let i in audioControlIcons) {
             if (typeof audioControlIcons[i].style !== "undefined") {
