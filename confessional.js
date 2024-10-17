@@ -171,6 +171,7 @@ $(function () {
                     if (step == 0) {
                         playAudio(1);
                     } else if (step == 2) {
+                        term.resize()
                         playAudio(2);
                     } else if (step == 3) {
                         playAudio(3);
