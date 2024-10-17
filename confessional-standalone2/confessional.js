@@ -9,28 +9,25 @@ let currentAudio = audioList[0];
 let userAllowingAudio = false;
 
 function audioToggle() {
-    if (!isMobile) {
-        document.querySelectorAll("textarea")[0].click();
-    }
+    document.querySelectorAll("textarea")[0].click();
+
     if (userAllowingAudio) {
-        for (let i in audioControlIcons) {
-            if (typeof audioControlIcons[i].style !== "undefined") {
-                audioControlIcons[i].style.opacity = "0.4";
-                audioControlIcons[i].textContent = "Sound off";
-            }
-        }
+        //for (let i in audioControlIcons) {
+        //    if (typeof audioControlIcons[i].style !== "undefined") {
+        //        audioControlIcons[i].textContent = "Sound off";
+        //    }
+        //}
         userAllowingAudio = false;
         currentAudio.pause();
     } else {
         userAllowingAudio = true;
         currentAudio.play();
-        for (let i in audioControlIcons) {
-            if (typeof audioControlIcons[i].style !== "undefined") {
-                audioControlIcons[i].style.opacity = "1";
-                audioControlIcons[i].textContent = "Sound on";
+        //for (let i in audioControlIcons) {
+        //    if (typeof audioControlIcons[i].style !== "undefined") {
+        //        audioControlIcons[i].textContent = "Sound on";
 
-            }
-        }
+        //    }
+        //}
     }
 }
 
@@ -45,6 +42,7 @@ function playAudio(track) {
 function pauseAudio() {
     currentAudio.pause()
 }
+
 $(function () {
 
     function is_object(val) {
@@ -172,7 +170,6 @@ $(function () {
                     if (step == 0) {
                         playAudio(1);
                     } else if (step == 2) {
-                        term.resize()
                         playAudio(2);
                     } else if (step == 3) {
                         playAudio(3);
@@ -239,3 +236,7 @@ $(function () {
     );
 
 });
+
+document.addEventListener('DOMContentLoaded', e => {
+    term.resize()
+})

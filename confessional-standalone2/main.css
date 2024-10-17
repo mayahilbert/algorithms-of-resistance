@@ -1,0 +1,670 @@
+@font-face {
+    font-family: 'print_char_21medium';
+    src: url('PrintChar21.woff2') format('woff2'),
+        url('PrintChar21.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+* {
+    --highlight: #14F53C;
+    --highlight-light: #80f295;
+
+    /*--highlight: #59bf61;*/
+}
+
+html {
+    position: relative;
+    min-height: 100vh;
+}
+
+body {
+
+    font-family: 'Overpass', sans-serif;
+    background: black;
+    background-color: radial-gradient(rgb(81, 169, 138), rgb(84, 155, 84), rgb(0, 0, 0));
+    color: var(--highlight);
+    width: 100%;
+    margin: 0;
+    --retro-font: 'print_char_21medium', monospace;
+    cursor: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg id='b' xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 223.56 223.56'%3E%3Cdefs%3E%3Cstyle%3E.d%7Bfill:none;stroke:%23fff;stroke-miterlimit:10;stroke-width:10px;%7D%3C/style%3E%3C/defs%3E%3Cg id='c'%3E%3Cline class='d' x1='111.78' x2='111.78' y2='93.9'/%3E%3Cline class='d' x1='111.78' y1='129.66' x2='111.78' y2='223.56'/%3E%3Cline class='d' x1='223.56' y1='111.78' x2='129.66' y2='111.78'/%3E%3Cline class='d' x1='93.9' y1='111.78' y2='111.78'/%3E%3C/g%3E%3C/svg%3E") 16 16, pointer;
+    /*cursor: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg id='b' width='128' height='128' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 138.58 186.38'%3E%3Cdefs%3E%3Cstyle%3E.d%7Bfill:none;stroke:%23fff;stroke-miterlimit:10;stroke-width:2.55px;%7D%3C/style%3E%3C/defs%3E%3Cg id='c'%3E%3Cline class='d' x1='.26' y1='40.35' x2='138.56' y2='40.35'/%3E%3Cline class='d' x1='1.28' y1='82.2' x2='1.28' y2='41.04'/%3E%3Cline class='d' x1='137.24' y1='82.2' x2='137.24' y2='41.04'/%3E%3Cline class='d' x1='138.56' y1='145.62' x2='.26' y2='145.62'/%3E%3Cline class='d' x1='137.31' y1='104.23' x2='137.31' y2='145.38'/%3E%3Cline class='d' x1='1.28' y1='105' x2='1.28' y2='146.15'/%3E%3Cline class='d' x1='69.41' y1='145.22' x2='69.41' y2='186.38'/%3E%3Cline class='d' x1='69.41' x2='69.41' y2='41.15'/%3E%3C/g%3E%3C/svg%3E") 32 32, pointer;*/
+}
+
+#myVideo {
+    width: 100%;
+    height: 98vh;
+    object-fit: contain;
+    z-index: 9999;
+    opacity: 1;
+    transition: 0.2s;
+}
+
+#myVideo2 {
+    width: 100%;
+    height: 98vh;
+    object-fit: contain;
+    z-index: 999;
+    display: none;
+    transition: 0.2s;
+    margin: 0 auto;
+}
+
+@media (min-width: 50em) {
+
+    #myVideo {
+        height: 100%;
+        max-height: 98vh;
+    }
+
+    #myVideo2 {
+        padding-top: 16vh;
+        height: 70vh;
+        max-height: 98vh;
+
+    }
+}
+
+#main-content {
+    z-index: -1;
+    opacity: 0;
+    display: none;
+}
+
+#main-content.loaded {
+    display: flex;
+    animation: fadeInAnimation ease 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+a {
+    cursor: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg id='b' xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 223.56 223.56'%3E%3Cdefs%3E%3Cstyle%3E.d%7Bfill:none;stroke:%23fff;stroke-miterlimit:10;stroke-width:17px;%7D%3C/style%3E%3C/defs%3E%3Cg id='c'%3E%3Cline class='d' x1='111.78' x2='111.78' y2='93.9'/%3E%3Cline class='d' x1='111.78' y1='129.66' x2='111.78' y2='223.56'/%3E%3Cline class='d' x1='223.56' y1='111.78' x2='129.66' y2='111.78'/%3E%3Cline class='d' x1='93.9' y1='111.78' y2='111.78'/%3E%3C/g%3E%3C/svg%3E") 16 16, pointer;
+    text-decoration: none;
+}
+
+p {
+    font-size: clamp(1rem, 1.2vw, 2rem);
+    font-weight: 300;
+    max-width: 36em;
+}
+
+body::before {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.16) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.04), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.05));
+    z-index: 2;
+    background-size: 100% 2px, 3px 100%;
+    pointer-events: none;
+}
+
+/*body::after {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(18, 16, 16, 0.1);
+    opacity: 0;
+    z-index: 2;
+    pointer-events: none;
+}*/
+
+a {
+    color: var(--highlight);
+}
+
+
+.hidden-ss {
+    display: none;
+}
+
+.video-container {
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.video-16-9 {
+    aspect-ratio: 16/9;
+    width: 70%;
+    position: relative;
+    z-index: 50;
+}
+
+h1,
+h2,
+h3,
+.button-link {
+    text-shadow: 0em 0em 0.1em#00a702;
+}
+
+h1 {
+    font-size: clamp(2rem, 2.4vw, 4rem);
+}
+
+
+.exhibition-title {
+    font-family: 'Overpass', sans-serif;
+    text-transform: uppercase;
+    white-space: nowrap;
+    margin: 0;
+}
+
+.homepage .exhibition-title {
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    order: 2;
+    grid-column: 1 / 3;
+    font-size: clamp(12px, 2.1vw, 5rem);
+}
+
+menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 40px;
+}
+
+.homepage div:has(.button-link-nma) {
+    margin-bottom: 0;
+    grid-column: 1 / 3;
+    margin: 0;
+    padding: 0;
+}
+
+
+.project-page .exhibition-title {
+    font-size: 1.4rem;
+}
+
+.project-page menu {
+    gap: 1em;
+}
+
+.project-page menu .button-link {
+
+    padding: 0.2em 0.7em;
+}
+
+.works-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1.5em 0;
+
+}
+
+.project-container {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.works-wrapper {
+    /*display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;*/
+    /*max-width: 80vw;*/
+    display: grid;
+    grid-template-columns: clamp(300px, 30vw, 1280px) clamp(300px, 30vw, 1280px);
+    grid-row: auto auto;
+    grid-column-gap: 2em;
+    grid-row-gap: 2em;
+}
+
+
+
+.work {
+    display: block;
+    position: relative;
+    border: 2px solid var(--highlight);
+    width: clamp(300px, 30vw, 1280px);
+    background-position: center;
+    background-size: cover;
+    height: clamp(200px, 29vh, 1280px);
+    background-color: rgb(0, 0, 0, 0.4);
+    background-blend-mode: darken;
+}
+
+.work:hover {
+    background-color: rgb(0, 0, 0, 0.6);
+
+}
+
+.work-thumb {
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+    vertical-align: bottom;
+
+
+}
+
+.work-1-thumb {
+    background-image: url('images/ELEGY.jpg');
+}
+
+.work-2-thumb {
+    background-image: url('images/dead-in-iraq-1.jpg');
+}
+
+.work-3-thumb {
+    background-image: url('images/trump.jpg');
+}
+
+.work-4-thumb {
+    background-image: url('images/confessional.jpg');
+}
+
+a:has(.work-1-thumb),
+a:has(.work-2-thumb),
+a:has(.work-3-thumb),
+a:has(.work-4-thumb) {
+    margin: 0 auto;
+}
+
+a:has(.work-1-thumb),
+a:has(.work-2-thumb) {
+    order: 1;
+}
+
+a:has(.work-3-thumb),
+a:has(.work-4-thumb) {
+    order: 3
+}
+
+.work h2 {
+    position: absolute;
+    top: calc(50% - 1em);
+    left: 50%;
+    transform: translate(-50%, -49%);
+    /*background-color: rgb(0, 0, 0, 0.3);*/
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--retro-font);
+    text-transform: uppercase;
+    font-size: clamp(1rem, 0.9vw, 2rem);
+    width: 100%;
+    text-align: center;
+}
+
+
+.button-link {
+    border: 2px solid var(--highlight);
+    background-color: transparent;
+    color: var(--highlight);
+    font-family: var(--retro-font);
+    padding: 0.7em 0.8em;
+    font-size: 1em;
+    text-decoration: none;
+    text-transform: uppercase;
+    line-height: 2em;
+    white-space: nowrap;
+}
+
+.button-link-left::before {
+    content: "<";
+    padding-right: 0.5em;
+}
+
+
+.button-link-right::after {
+    content: ">";
+    padding-left: 0.5em;
+}
+
+div.button-links-bottom {
+    order: 4;
+    display: flex;
+    justify-content: space-between;
+    grid-column: 1 / 3;
+}
+
+.project-desc-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.project-desc {
+    margin: 1em 3em
+}
+
+
+
+@media (max-width: calc(600px + 10em)) {
+    .works-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .work {
+        width: 80vw;
+    }
+
+    a:has(.work) {
+        grid-column: 1 / 3;
+    }
+
+    .homepage .exhibition-title {
+        order: 1;
+        font-size: 5.6vw;
+    }
+
+    .homepage .button-link {
+        margin: 0 2.5em;
+    }
+
+    .project-page menu {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    div.button-links-bottom {
+        flex-direction: column;
+        gap: 3em;
+    }
+}
+
+@media (max-width: 940px) {
+
+    .hidden-ss {
+        display: block;
+    }
+}
+
+.works-container::after,
+.project-container::after {
+    content: "";
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/7/76/1k_Dissolve_Noise_Texture.png");
+    height: 400%;
+    width: 400%;
+    position: fixed;
+    opacity: 0.04;
+    animation: animateGrain 8s steps(10) infinite;
+    pointer-events: none;
+}
+
+
+@keyframes animateGrain {
+
+    0%,
+    100% {
+        transform: translate(0, 0)
+    }
+
+    10% {
+        transform: translate(-5%, -10%)
+    }
+
+    20% {
+        transform: translate(-15%, -20%)
+    }
+
+    30% {
+        transform: translate(-5%, -10%)
+    }
+
+    40% {
+        transform: translate(-15%, -20%)
+    }
+
+    50% {
+        transform: translate(-5%, -10%)
+    }
+
+    60% {
+        transform: translate(-15%, -20%)
+    }
+
+    70% {
+        transform: translate(-5%, -10%)
+    }
+
+    80% {
+        transform: translate(-15%, -20%)
+    }
+
+    90% {
+        transform: translate(-5%, -10%)
+    }
+
+    100% {
+        transform: translate(-15%, -20%)
+    }
+
+}
+
+.confessional-link {
+    margin: 2em 0 3em 0;
+    background-image: url("images/confessional.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 10em 0;
+    display: flex;
+    justify-content: center;
+}
+
+.confessional-link>.button-link {
+    background-color: #000;
+}
+
+body.computerized-confessional,
+.computer-wrapper>* {
+    background: black;
+    color: var(--highlight);
+    font-family: var(--retro-font);
+    text-shadow: 0em 0em 0.3em#00a702 !important;
+    text-transform: uppercase;
+}
+
+.computer-wrapper>p,
+.computer-wrapper>span {
+    text-shadow: 0em 0em 0.5em#00a702 !important;
+
+}
+
+#confessional-bg {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.computer-container {
+    height: clamp(600px, 1280px, 95%);
+    width: 60%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    border: 0.2em solid var(--highlight);
+    overflow-y: hidden;
+
+}
+
+#confessional {
+    width: 100%;
+    padding-bottom: 2em;
+}
+
+
+#confessional>* {
+    max-width: clamp(500px, 51vw, 53em);
+    margin: 0 auto;
+    height: auto;
+}
+
+textarea,
+input {
+    background: black;
+    color: var(--highlight);
+    font-family: var(--retro-font);
+    text-shadow: 0em 0em 0.3em#00a702;
+    border: none;
+}
+
+.input::after {
+    content: '';
+    font-family: var(--retro-font);
+
+}
+
+.cmd-cursor-line .cmd-cursor span.end>* {
+    font-family: var(--retro-font) !important;
+
+}
+
+.terminal-scroller {
+    scrollbar-color: black var(--background, #000);
+}
+
+/* Style the scrollbar background */
+.terminal-scroller::-webkit-scrollbar {
+    background: black;
+}
+
+/* Style the scrollbar handle */
+.terminal-scroller::-webkit-scrollbar-thumb {
+    background: black;
+}
+
+.mercy {
+    text-align: center;
+    width: 100%;
+}
+
+@media screen and (max-width: 600px) {
+    .computer-container {
+        width: 100%;
+        border: none;
+    }
+
+    .cmd,
+    .cmd div,
+    .cmd span,
+    .terminal,
+    .terminal-output> :not(.raw) a,
+    .terminal-output> :not(.raw) div,
+    .terminal-output> :not(.raw) span,
+    i.audio-control-icon {
+        font-size: calc(var(--size, 1)*(2.2vw/var(--pixel-density, 1)));
+    }
+
+    .computer-container {
+        height: 100%;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+    }
+
+    #confessional {
+        width: 100%;
+        padding-bottom: 0;
+        margin-top: 5vh;
+    }
+
+}
+
+
+@media screen and (min-width: 1920px) {
+
+    .cmd,
+    .cmd div,
+    .cmd span,
+    .terminal,
+    .terminal-output> :not(.raw) a,
+    .terminal-output> :not(.raw) div,
+    .terminal-output> :not(.raw) span,
+    i.audio-control-icon {
+        font-size: calc(var(--size, 1)*(0.82vw/var(--pixel-density, 1)));
+        line-height: calc(var(--size, 1)*(0.92vw/var(--pixel-density, 1)));
+    }
+
+    .terminal-output {
+        margin-bottom: 2vh;
+    }
+}
+
+@media screen and (min-width: 2560px) {
+
+    .cmd,
+    .cmd div,
+    .cmd span,
+    .terminal,
+    .terminal-output> :not(.raw) a,
+    .terminal-output> :not(.raw) div,
+    .terminal-output> :not(.raw) span,
+    i.audio-control-icon {
+        font-size: calc(var(--size, 1)*(0.7vw/var(--pixel-density, 1)));
+        line-height: calc(var(--size, 1)*(0.8vw/var(--pixel-density, 1)));
+    }
+
+    .terminal-output {
+        margin-bottom: 7vh;
+    }
+
+    #confessional {
+        padding-bottom: 3vh;
+    }
+}
+
+@media screen and (min-width: 2900px) {
+
+    .cmd,
+    .cmd div,
+    .cmd span,
+    .terminal,
+    .terminal-output> :not(.raw) a,
+    .terminal-output> :not(.raw) div,
+    .terminal-output> :not(.raw) span,
+    i.audio-control-icon {
+        font-size: calc(var(--size, 1)*(0.6vw/var(--pixel-density, 1)));
+        line-height: calc(var(--size, 1)*(0.7vw/var(--pixel-density, 1)));
+    }
+
+    .computer-container {
+        height: clamp(600px, 1650px, 95%);
+
+    }
+}
+
+@media screen and (min-width: 3600px) {
+
+    .computer-container {
+        height: clamp(600px, 1760px, 95%);
+
+    }
+}
+
+i.audio-control-icon {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 999999;
+    margin: 1em;
+    cursor: pointer;
+}
