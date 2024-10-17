@@ -576,6 +576,10 @@ input {
 
     }
 
+    i.audio-control-icon {
+        font-size: calc(var(--size, 1)*(4vw/var(--pixel-density, 1)));
+    }
+
     .computer-container {
         width: 97%;
         overflow-y: scroll;
@@ -607,11 +611,14 @@ input {
     .terminal,
     .terminal-output> :not(.raw) a,
     .terminal-output> :not(.raw) div,
-    .terminal-output> :not(.raw) span,
-    i.audio-control-icon {
+    .terminal-output> :not(.raw) span {
         font-size: calc(var(--size, 1)*(2.2vw/var(--pixel-density, 1)));
         line-height: calc(var(--size, 1)*(3.2vw/var(--pixel-density, 1)));
 
+    }
+
+    i.audio-control-icon {
+        font-size: calc(var(--size, 1)*(3.4vw/var(--pixel-density, 1)));
     }
 
     .computer-container {
