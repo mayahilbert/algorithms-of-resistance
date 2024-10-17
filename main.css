@@ -561,6 +561,7 @@ input {
 @media screen and (max-width: 900px) {
     #confessional-bg {
         height: auto;
+        min-height: 80%;
     }
 
     .cmd,
